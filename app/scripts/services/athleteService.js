@@ -5,7 +5,7 @@
         .module('athleteApp')
         .factory('AthleteService', function($http) {
            function getList() {
-               $http.get('http://localhost:3000/athletes.json');
+               return $http.get('http://localhost:3000/athletes.json');
            }
 
            return {
