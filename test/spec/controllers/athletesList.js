@@ -26,10 +26,10 @@ describe('Controller: AthletesListCtrl', function () {
     }));
 
     it('gets the athletes from the service and puts them on scope', function () {
-        athletesDeferred.resolve([{
+        athletesDeferred.resolve({data: [{
             name: 'Vincenzo Nibali',
             weight: 155
-        }]);
+        }]});
         scope.$apply();
 
         expect(scope.athletes).toEqual([{
