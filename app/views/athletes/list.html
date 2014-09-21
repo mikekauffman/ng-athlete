@@ -1,6 +1,9 @@
 <h1>Athletes</h1>
 <ul>
     <li ng-repeat="athlete in athletes">
-        <p class="lead">{{athlete.name}} ({{athlete.weight}} lbs)</p>
+        <p class="lead">
+            <a href="#athletes/{{athlete.id}}">{{athlete.name}}</a>
+            <span>({{athlete.weight}} lbs)</span>
+        </p>
     </li>
 </ul>

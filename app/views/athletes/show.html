@@ -1,0 +1,7 @@
+<h1>{{athlete.name}} ({{athlete.weight}})</h1>
+<h2>Activities:</h2>
+<ul>
+    <li ng-repeat="activity in activities">
+        On {{activity.started_at}}, {{athlete.name}} rode {{activity.distance}} miles and climbed {{activity.elevation_gain}} feet.
+    </li>
+</ul>

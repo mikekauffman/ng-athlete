@@ -13,6 +13,10 @@ angular
         templateUrl: 'views/athletes/list.html',
         controller: 'AthletesListCtrl'
       })
+      .when('/athletes/:athleteId', {
+        templateUrl: 'views/athletes/show.html',
+        controller: 'AthleteShowCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
