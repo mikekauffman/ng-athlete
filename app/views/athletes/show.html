@@ -8,7 +8,7 @@
 <h2>Activities:</h2>
 <ul>
     <li ng-repeat="activity in activities">
-        On {{activity.started_at}},
+        On {{activity.started_at | date:'medium'}},
         <inline-edit object="athlete" attribute="name" endpoint="athletes" prefix="athlete"></inline-edit>
         rode
         <inline-edit object="activity" attribute="distance" endpoint="activities" prefix="activity"></inline-edit>
