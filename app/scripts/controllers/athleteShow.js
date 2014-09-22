@@ -11,5 +11,17 @@
       ActivityService.getList({athlete_id: $routeParams.athleteId}).then(function(activitiesResponse) {
         $scope.activities = activitiesResponse.data;
       });
+
+      $scope.startEditing = function() {
+        $scope.editingAthlete = true;
+        $scope.newAthleteName = $scope.athlete.name;
+      };
+
+      $scope.finishEditing = function() {
+        AthleteService.put($scope.athlete.id, {name: $scope.newAthleteName}).then(function() {
+          $scope.editingAthlete = false;
+          $scope.athlete.name = $scope.newAthleteName;
+        });
+      };
     });
 })();

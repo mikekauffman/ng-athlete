@@ -29,4 +29,12 @@ describe('Service: AthleteService', function () {
       $httpBackend.flush();
     })
   });
+
+  describe('put', function() {
+    it('PUTs data to an athlete', function() {
+      $httpBackend.expectPUT(/athletes\/99/, {athlete: {name: 'Vincent Nibali'}}).respond('hello!');
+      AthleteService.put(99, {name: 'Vincent Nibali'});
+      $httpBackend.flush();
+    })
+  });
 });

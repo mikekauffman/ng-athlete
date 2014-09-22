@@ -12,9 +12,14 @@
         return $http.get('http://localhost:3000/athletes/' + athleteId + '.json');
       }
 
+      function put(athleteId, params) {
+        return $http.put('http://localhost:3000/athletes/' + athleteId, {athlete: params});
+      }
+
       return {
         getList: getList,
-        get: get
+        get: get,
+        put: put
       };
     });
 })();
