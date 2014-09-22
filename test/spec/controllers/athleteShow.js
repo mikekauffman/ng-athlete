@@ -65,42 +65,4 @@ describe('Controller: AthleteShowCtrl', function () {
       }
     ]);
   });
-
-  describe('startEditing', function() {
-    it('sets editingAthlete to truthy', function() {
-      delete scope.editingAthlete;
-      scope.athlete = {};
-      scope.startEditing();
-
-      expect(scope.editingAthlete).toBeTruthy();
-    });
-
-    it('sets the newAthleteName to the current athlete name', function() {
-      delete scope.newAthleteName;
-      scope.athlete = {name: "Vincenzo Nibali"};
-      scope.startEditing();
-
-      expect(scope.newAthleteName).toEqual("Vincenzo Nibali");
-    });
-  });
-
-  describe('finishEditing', function() {
-    it('calls the athlete service and sets the athlete name', function() {
-      scope.editingAthlete = true;
-      scope.athlete = {id: 123, name: 'Vincenzo Nibali'};
-      scope.newAthleteName = 'Vincent Nibali';
-
-      var putDeferred = $q.defer();
-      spyOn(AthleteService, 'put').andReturn(putDeferred.promise);
-
-      scope.finishEditing();
-
-      putDeferred.resolve();
-      scope.$apply();
-
-      expect(AthleteService.put).toHaveBeenCalledWith(123, {name: 'Vincent Nibali'});
-      expect(scope.editingAthlete).toBeFalsy();
-      expect(scope.athlete.name).toEqual('Vincent Nibali');
-    });
-  });
 });

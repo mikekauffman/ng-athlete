@@ -27,7 +27,7 @@ describe('Service: AthleteService', function () {
       $httpBackend.expectGET(/athletes\/99\.json/).respond('hello!');
       AthleteService.get(99);
       $httpBackend.flush();
-    })
+    });
   });
 
   describe('put', function() {
@@ -35,6 +35,6 @@ describe('Service: AthleteService', function () {
       $httpBackend.expectPUT(/athletes\/99/, {athlete: {name: 'Vincent Nibali'}}).respond('hello!');
       AthleteService.put(99, {name: 'Vincent Nibali'});
       $httpBackend.flush();
-    })
+    });
   });
 });
