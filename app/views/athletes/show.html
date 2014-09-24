@@ -1,7 +1,14 @@
-<h1>{{athlete.name}} ({{athlete.weight}})</h1>
+<h1>
+  <span ng-hide="editingAthleteName">{{athlete.name}}</span>
+  <a ng-click="editAthleteName()" ng-hide="editingAthleteName" href="">Edit</a>
+  <input type="text" ng-show="editingAthleteName" ng-model="athlete.name">
+  <a ng-click="finishEditing(athlete)" ng-show="editingAthleteName" href="">Submit</a>
+</h1>
+<h1>({{athlete.weight}})</h1>
 <h2>Activities:</h2>
 <ul>
-    <li ng-repeat="activity in activities">
-        On {{activity.started_at}}, {{athlete.name}} rode {{activity.distance}} miles and climbed {{activity.elevation_gain}} feet.
-    </li>
+  <li ng-repeat="activity in activities">
+    On {{activity.started_at | date:'medium'}}, {{athlete.name}} rode {{activity.distance}} miles and climbed
+    {{activity.elevation_gain}} feet.
+  </li>
 </ul>
