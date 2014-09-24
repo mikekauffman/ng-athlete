@@ -1,0 +1,6 @@
+<div style="display: inline-block">
+  <span ng-hide="editingObject">{{object[attribute]}}</span>
+  <a href="" ng-click="startEditing()" ng-hide="editingObject">Edit</a>
+  <input type="text" ng-model="newValue" ng-show="editingObject">
+  <a href="" ng-click="finishEditing()" ng-show="editingObject">Done</a>
+</div>
